@@ -1,0 +1,50 @@
+package core.JUnit;
+
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
+
+
+
+
+
+@RunWith(Parameterized.class)
+public class PNCTest {
+       private PNC ia;
+
+     @Before
+       public void initialize() {
+             ia = new PNC();
+       }
+
+       @Parameter(value = 0)
+       public Integer inputNumber;
+
+       @Parameter(value = 1)
+       public Boolean expectedResult;
+
+
+       @Parameters(name = "Iteration # {index}: Number: {0}; isPrime? {1}")
+       public static Collection<Object[]> primeNumbers() {
+             Object[][] data = new Object[][] {
+
+
+                           };
+             
+                    return Arrays.asList(data);
+       }
+
+       @Test
+       public void testPNC() {
+       System.out.println("Is " + inputNumber + " a prime number? - " + expectedResult);
+       assertEquals(expectedResult, ia.validate(inputNumber));
+       }
+}
